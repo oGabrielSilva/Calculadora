@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gabriel Henrique da Silva">
+    <meta name="description" content="Aplicativo de calculadora personalizado. Possui Bhaskara">
+    <meta name="keywords" content="sites, perfil, desenvolvimento">
+    <meta name="copyright" content="© 2021 Gabriel Henrique da Silva">
+
+    <link rel="stylesheet" href="public/style/master.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <main>
+        <header>
+
+        </header>
+        <div class="body">
+
+            <div id="display">
+                <input type="text" id="display1" class="display" readonly>
+                <input type="text" id="display2" class="display" readonly>
+            </div>
+            <div id="keyboard">
+                <p>
+                    <button id="clear" onclick="clear()" class="button">C</button>
+                    <button id="porcento" class="button" onclick="porcento()">%</button>
+                    <button id="soma" class="button" onclick="soma()">+</button>
+                    <button id="vezes" class="button" onclick="vezes()">X</button>
+                </p>
+                <br>
+                <p>
+                    <button id="sete" onclick="sete()" class="button">7</button>
+                    <button id="oito" onclick="oito()" class="button">8</button>
+                    <button id="nove" class="button" onclick="nove()">9</button>
+                    <button id="divide" class="button" onclick="divide()">/</button>
+                
+                </p>
+                <br>
+                <p>
+                    <button id="quatro" class="button" onclick="quatro()">4</button>
+                    <button id="cinco" class="button" onclick="cinco()">5</button>
+                    <button id="seis" class="button" onclick="seis()">6</button>
+                    <button id="menos" class="button" onclick="menos()">-</button>
+                </p>
+                <br>
+                <p>
+                    <button id="um" class="button" onClick="um()">1</button>
+                    <button id="dois" class="button" onclick="dois()">2</button>
+                    <button id="tres" class="button" onclick="tres()">3</button>
+                    <button id="elevado" class="button" onclick="elevado()">^</button>
+                </p>
+                <br>
+                <p>
+                    <button id="zero" class="button" onclick="zero()">00</button>
+                    <button id="delta" class="button" onclick="delta()">Δ</button>
+                    <button id="igual" class="button" onclick="igual()">=</button>
+                </p>
+            </div>
+        </div>
+        
+    </main>
+    <script src="public/script/main.js"></script>
+</body>
+</html>
