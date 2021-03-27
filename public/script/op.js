@@ -11,7 +11,8 @@ function porcento() {
     if (firstLine.length < 1) {
         return
     }
-    
+    display.value += '%'
+    firstLine[0] += '/100*'
 }
 
 function soma() {
@@ -71,15 +72,28 @@ function parenteses() {
     auxP++
 }
 
-function delta() {
+let raizQ = false
+
+function raiz() {
     if (firstLine.length < 1) {
-        return
+        firstLine[0] = '(Math.sqrt('
+        display.value += '√'
+        raizQ = true
+    } else {
+        firstLine[0] += '+(Math.sqrt('
+        display.value += '√'
+        raizQ = true
     }
 }
 
 function igual() {
     if (firstLine.length < 1) {
         return
+    }
+
+    if (raizQ == true) {
+        firstLine[0] += '))'
+        raizQ = false
     }
 
     let resultado = eval(firstLine[0])
