@@ -1,4 +1,10 @@
 function clearLine() {
+    const clickButton = document.querySelector('#clear')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -8,7 +14,14 @@ function clearLine() {
 }
 
 function del() {
+    const clickButton = document.querySelector('#del')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
+        display.value = ''
         return
     } 
     
@@ -23,7 +36,7 @@ function del() {
     
     switch (aux.charAt(aux.length - 1)) {
         case '(':
-            if (aux.charAt(aux.length - 2) == 't'){
+            if (aux.charAt(aux.length - 2) == 't' || aux.charAt(aux.length - 3) == 't') {
                 let n = ''
                 for (i = 0; i < aux.length - 12; i++) {
                     n += aux[i]
@@ -66,6 +79,12 @@ function del() {
 }
 
 function dot() {
+    const clickButton = document.querySelector('#dot')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -80,6 +99,12 @@ function dot() {
 }
 
 function porcento() {
+    const clickButton = document.querySelector('#porcento')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -95,6 +120,12 @@ function porcento() {
 }
 
 function soma() {
+    const clickButton = document.querySelector('#soma')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -110,6 +141,12 @@ function soma() {
 }
 
 function vezes() {
+    const clickButton = document.querySelector('#vezes')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -125,6 +162,12 @@ function vezes() {
 }
 
 function divide() {
+    const clickButton = document.querySelector('#divide')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -140,6 +183,12 @@ function divide() {
 }
 
 function menos() {
+    const clickButton = document.querySelector('#menos')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -157,6 +206,12 @@ function menos() {
 let auxP = 0
 
 function parenteses() {
+    const clickButton = document.querySelector('#parenteses')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         return
     }
@@ -182,6 +237,12 @@ function parenteses() {
 let raizQ = false
 
 function raiz() {
+    const clickButton = document.querySelector('#delta')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     if (firstLine.length < 1) {
         firstLine[0] = '(Math.sqrt('
         display.value += '√'
@@ -201,6 +262,12 @@ function raiz() {
 }
 
 function igual() {
+    const clickButton = document.querySelector('#igual')
+    clickButton.style.background = '#129b12'
+    setTimeout(function() {
+        clickButton.style.background = '#018b01'
+    }, 100);
+    
     if (auxP % 2 != 0) {
         firstLine[0] += ')'
         display.value += ')'

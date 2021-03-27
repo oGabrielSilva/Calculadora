@@ -11,6 +11,12 @@ firstLine = []
 
 //buttons númericos 
 function zero() {
+    const clickButton = document.querySelector('#zero')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 0
     
     if (firstLine.length < 1) {
@@ -21,6 +27,12 @@ function zero() {
 }
 
 function um() {
+    const clickButton = document.querySelector('#um')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 1
     
     if (firstLine.length < 1) {
@@ -31,6 +43,12 @@ function um() {
 }
 
 function dois() {
+    const clickButton = document.querySelector('#dois')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 2
     
     if (firstLine.length < 1) {
@@ -41,6 +59,12 @@ function dois() {
 }
 
 function tres() {
+    const clickButton = document.querySelector('#tres')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 3
     
     if (firstLine.length < 1) {
@@ -51,6 +75,12 @@ function tres() {
 }
 
 function quatro() {
+    const clickButton = document.querySelector('#quatro')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 4
     
     if (firstLine.length < 1) {
@@ -61,6 +91,12 @@ function quatro() {
 }
 
 function cinco() {
+    const clickButton = document.querySelector('#cinco')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 5
     
     if (firstLine.length < 1) {
@@ -71,6 +107,12 @@ function cinco() {
 }
 
 function seis() {
+    const clickButton = document.querySelector('#seis')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 6
     
     if (firstLine.length < 1) {
@@ -81,6 +123,12 @@ function seis() {
 }
 
 function sete() {
+    const clickButton = document.querySelector('#sete')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 7
     
     if (firstLine.length < 1) {
@@ -91,6 +139,12 @@ function sete() {
 }
 
 function oito() {
+    const clickButton = document.querySelector('#oito')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 8
     
     if (firstLine.length < 1) {
@@ -101,6 +155,12 @@ function oito() {
 }
 
 function nove() {
+    const clickButton = document.querySelector('#nove')
+    clickButton.style.background = '#333'
+    setTimeout(function() {
+        clickButton.style.background = '#222222'
+    }, 100);
+    
     display.value += 9
     
     if (firstLine.length < 1) {
@@ -109,4 +169,3 @@ function nove() {
         firstLine[0] += "9"
     }
 }
-
