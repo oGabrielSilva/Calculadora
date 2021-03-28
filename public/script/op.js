@@ -28,14 +28,13 @@ function del() {
         auxP++
     }
     raizQ = false
-    backLine = lastBack[lastBack.length - auxDel]
+    backLine = lastBack[lastBack.length - 1]
     lastBack.pop()
-    auxDel++
     
     if (backLine == undefined) {
         backLine = ''
-        auxDel = 1
     }
+    
     lastValue = backLine
     firstLine = lastValue
     display.value = firstLine

@@ -7,7 +7,6 @@ const display2 = document.querySelector('#display2')
 
 let auxP = 0            //auxiliar dos parenteses
 let raizQ = false       // auxiliar da raiz quadrada
-let auxDel = 1          //auxiliar do delete
 let firstLine = ``
 let backLine = ``
 let lastValue = false
