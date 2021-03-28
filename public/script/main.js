@@ -3,11 +3,58 @@ const display = document.querySelector('#display1')
 const display2 = document.querySelector('#display2')
 
 
-//vetores globais
+//vetores e variáveis globais
 
-firstLine = []
+let auxP = 0            //auxiliar dos parenteses
+let raizQ = false       // auxiliar da raiz quadrada
+let auxDel = 1          //auxiliar do delete
+let firstLine = ``
+let backLine = ``
+let lastValue = false
+lastBack = []
+let resultado = ''
 
-//variáveis globais 
+//funções glóbais 
+function global() {
+    if (backLine.length < 1) {
+        backLine = lastValue
+        if (backLine == false) {
+            backLine = ''
+        }
+    } else {
+        lastBack.push(backLine)
+        backLine += lastValue
+    }
+    
+    switch (lastValue) {
+            case '*':
+                firstLine += 'x'
+                break;
+            case '/100*':
+                firstLine += '%'
+                break;
+            case '100/100*': 
+                firstLine += '%'
+                break
+            case 'Math.sqrt(':
+                firstLine += '√'
+                break;
+            case '+Math.sqrt(':
+                firstLine += '√'
+                break;
+            default:
+                if (firstLine == 'false') {
+                    firstLine = ''
+                }
+                firstLine += lastValue
+                break;
+        }
+        
+        display.value = firstLine
+        if (display.value == 'false') {
+            display.value = 'Null'
+        }
+}
 
 //buttons númericos 
 function zero() {
@@ -17,13 +64,9 @@ function zero() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 0
+    lastValue = '0'
+    global()
     
-    if (firstLine.length < 1) {
-        firstLine.push("0")
-    } else {
-        firstLine[0] += "0"
-    }
 }
 
 function um() {
@@ -33,13 +76,9 @@ function um() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 1
-    
-    if (firstLine.length < 1) {
-        firstLine.push("1")
-    } else {
-        firstLine[0] += "1"
-    }
+    lastValue = '1'
+    global()
+    return
 }
 
 function dois() {
@@ -49,13 +88,9 @@ function dois() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 2
-    
-    if (firstLine.length < 1) {
-        firstLine.push("2")
-    } else {
-        firstLine[0] += "2"
-    }
+    lastValue = '2'
+    global()
+    return
 }
 
 function tres() {
@@ -65,13 +100,9 @@ function tres() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 3
-    
-    if (firstLine.length < 1) {
-        firstLine.push("3")
-    } else {
-        firstLine[0] += "3"
-    }
+    lastValue = '3'
+    global()
+    return
 }
 
 function quatro() {
@@ -81,13 +112,8 @@ function quatro() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 4
-    
-    if (firstLine.length < 1) {
-        firstLine.push("4")
-    } else {
-        firstLine[0] += "4"
-    }
+    lastValue = '4'
+    global()
 }
 
 function cinco() {
@@ -97,13 +123,9 @@ function cinco() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 5
-    
-    if (firstLine.length < 1) {
-        firstLine.push("5")
-    } else {
-        firstLine[0] += "5"
-    }
+    lastValue = '5'
+    global()
+    return
 }
 
 function seis() {
@@ -113,13 +135,9 @@ function seis() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 6
-    
-    if (firstLine.length < 1) {
-        firstLine.push("6")
-    } else {
-        firstLine[0] += "6"
-    }
+    lastValue = '6'
+    global()
+    return
 }
 
 function sete() {
@@ -129,13 +147,9 @@ function sete() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 7
-    
-    if (firstLine.length < 1) {
-        firstLine.push("7")
-    } else {
-        firstLine[0] += "7"
-    }
+    lastValue = '7'
+    global()
+    return
 }
 
 function oito() {
@@ -145,13 +159,9 @@ function oito() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 8
-    
-    if (firstLine.length < 1) {
-        firstLine.push("8")
-    } else {
-        firstLine[0] += "8"
-    }
+    lastValue = '8'
+    global()
+    return
 }
 
 function nove() {
@@ -161,11 +171,7 @@ function nove() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    display.value += 9
-    
-    if (firstLine.length < 1) {
-        firstLine.push("9")
-    } else {
-        firstLine[0] += "9"
-    }
+    lastValue = '9'
+    global()
+    return
 }

@@ -1,16 +1,20 @@
 function clearLine() {
     const clickButton = document.querySelector('#clear')
+    
     clickButton.style.background = '#333'
     setTimeout(function() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    if (firstLine.length < 1) {
-        return
+    if (auxP % 2 != 0) {
+        auxP++
     }
-    firstLine.pop();
-    display1.value = '';
-    display2.value = '';
+    raizQ = false
+    backLine = ''
+    lastValue = false
+    firstLine = ''
+    lastBack = []
+    global()
 }
 
 function del() {
@@ -20,62 +24,21 @@ function del() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    if (firstLine.length < 1) {
-        display.value = ''
-        return
-    } 
-    
-    if (firstLine[0].length < 2) {
-        firstLine = []
-        display.value = ''
-        return
+    if (auxP % 2 != 0) {
+        auxP++
     }
+    raizQ = false
+    backLine = lastBack[lastBack.length - auxDel]
+    lastBack.pop()
+    auxDel++
     
-    let aux = firstLine[0]
-    firstLine = []
-    
-    switch (aux.charAt(aux.length - 1)) {
-        case '(':
-            if (aux.charAt(aux.length - 2) == 't' || aux.charAt(aux.length - 3) == 't') {
-                let n = ''
-                for (i = 0; i < aux.length - 12; i++) {
-                    n += aux[i]
-                    firstLine[0] = n
-                }
-                display.value = firstLine[0]
-                if (firstLine[0] == undefined) {
-                    display.value = ''
-                }
-            }
-            break;
-        case '*':
-            if (aux.charAt(aux.length - 2) == '0' && aux.charAt(aux.length - 4) == '1' && aux.charAt(aux.length - 5) == '/') {
-                let n = ''
-                for (i = 0; i < aux.length - 5; i++) {
-                    n += aux[i]
-                    firstLine[0] = n
-                }
-                display.value = firstLine[0]
-                if (firstLine[0] == undefined) {
-                    display.value = ''
-                }
-            }
-            break;
-        default: 
-            let n = ''
-            for (i = 0; i < aux.length - 1; i++) {
-                n += aux[i]
-                firstLine[0] = n
-            }
-            display.value = firstLine[0]
-            if (firstLine[0] == undefined) {
-                display.value = ''
-            }
-            break;
+    if (backLine == undefined) {
+        backLine = ''
+        auxDel = 1
     }
-    
-    
-    
+    lastValue = backLine
+    firstLine = lastValue
+    display.value = firstLine
 }
 
 function dot() {
@@ -87,15 +50,12 @@ function dot() {
     
     if (firstLine.length < 1) {
         return
-    }
-    let aux = firstLine[0]
-    
-    if (aux.charAt(aux.length - 1) == '.') {
+    } else if (firstLine == 'false') {
         return
     }
     
-    firstLine[0] += '.'
-    display.value += '.'
+    lastValue = '.'
+    global()
 }
 
 function porcento() {
@@ -107,16 +67,18 @@ function porcento() {
     
     if (firstLine.length < 1) {
         return
-    }
-    
-    let aux = firstLine[0]
-    
-    if (isNaN(aux.charAt(aux.length - 1))) {
+    } else if (firstLine == 'false') {
         return
     }
     
-    display.value += '%'
-    firstLine[0] += '/100*'
+    let auxPorc = lastValue
+    
+    lastValue = '/100*'
+    if (isNaN(auxPorc)) {
+        lastValue = '100/100*'
+    }
+    global()
+    
 }
 
 function soma() {
@@ -128,16 +90,12 @@ function soma() {
     
     if (firstLine.length < 1) {
         return
-    }
-    
-    let aux = firstLine[0]
-    
-    if (isNaN(aux.charAt(aux.length - 1))) {
+    } else if (firstLine == 'false') {
         return
     }
     
-    display.value += '+'
-    firstLine[0] += '+'
+    lastValue = '+'
+    global()
 }
 
 function vezes() {
@@ -149,16 +107,12 @@ function vezes() {
     
     if (firstLine.length < 1) {
         return
-    }
-    
-    let aux = firstLine[0]
-    
-    if (isNaN(aux.charAt(aux.length - 1))) {
+    } else if (firstLine == 'false') {
         return
     }
     
-    firstLine[0] += '*'
-    display.value += 'x'
+    lastValue = '*'
+    global()
 }
 
 function divide() {
@@ -170,16 +124,12 @@ function divide() {
     
     if (firstLine.length < 1) {
         return
-    }
-    
-    let aux = firstLine[0]
-    
-    if (isNaN(aux.charAt(aux.length - 1))) {
+    } else if (firstLine == 'false') {
         return
     }
     
-    firstLine[0] += '/'
-    display.value += "/"
+    lastValue = '/'
+    global()
 }
 
 function menos() {
@@ -191,19 +141,13 @@ function menos() {
     
     if (firstLine.length < 1) {
         return
-    }
-    
-    let aux = firstLine[0]
-    
-    if (isNaN(aux.charAt(aux.length - 1))) {
+    } else if (firstLine == 'false') {
         return
     }
     
-    firstLine[0] += '-'
-    display.value += '-'
+    lastValue = '-'
+    global()
 }
-
-let auxP = 0
 
 function parenteses() {
     const clickButton = document.querySelector('#parenteses')
@@ -212,29 +156,53 @@ function parenteses() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    if (firstLine.length < 1) {
-        return
-    }
-    let indeX = firstLine[0]
-    indeX = parseFloat(indeX.charAt(indeX.length - 1))
-    if (auxP % 2 == 0) {
-        if (isNaN(indeX)) {
-            firstLine[0] += '('
-            display.value += '('
-        } else {
-            firstLine[0] += '+('
-            display.value += '+('
+    if (auxP % 2 != 0) {
+        if (backLine.charAt(backLine.length - 1) == '(') {
+            return
         }
+        
+        lastValue = ')'
     } else {
-    
-        firstLine[0] += ')'
-        display.value += ')'
-    
+        switch (lastValue) {
+        case '0':
+            lastValue = '+('
+            break;
+        case '1':
+            lastValue = '+('
+            break;
+        case '2':
+            lastValue = '+('
+            break;
+        case '3':
+            lastValue = '+('
+            break;
+        case '4':
+            lastValue = '+('
+            break;
+        case '5':
+            lastValue = '+('
+            break
+        case '6':
+            lastValue = '+('
+            break
+        case '7':
+            lastValue = '+('
+            break
+        case '8':
+            lastValue = '+('
+            break
+        case '9': 
+            lastValue = '+('
+            break
+        default:
+            lastValue = '('
+            break
+        }
     }
+    
     auxP++
+    global()
 }
-
-let raizQ = false
 
 function raiz() {
     const clickButton = document.querySelector('#delta')
@@ -243,22 +211,47 @@ function raiz() {
         clickButton.style.background = '#222222'
     }, 100);
     
-    if (firstLine.length < 1) {
-        firstLine[0] = '(Math.sqrt('
-        display.value += '√'
-        raizQ = true
-    } else {
-        
-        let aux = firstLine[0]
-        
-        if (aux.charAt(aux.length - 2) == 't' ) {
-            return
-        }
-        
-        firstLine[0] += '+(Math.sqrt('
-        display.value += '√'
-        raizQ = true
+    if (raizQ == true) {
+        backLine += ')'
+        raizQ = false
+        igual()
+        return
     }
+    
+    switch (lastValue) {
+        case '+':
+            lastValue = 'Math.sqrt('
+            global()
+            break;
+        case '-':
+            lastValue = 'Math.sqrt('
+            global()
+            break
+        case '/':
+            lastValue = 'Math.sqrt('
+            global()
+            break
+        case ')':
+            lastValue = 'Math.sqrt('
+            global()
+            break
+        case '/100*':
+            lastValue = 'Math.sqrt('
+            global()
+            break
+        case false: 
+            lastValue = 'Math.sqrt('
+            global()
+            break
+        case '.':
+            lastValue = '+Math.sqrt('
+            global()
+            break
+        default:
+            lastValue = '+Math.sqrt('
+            global()
+    }
+    raizQ = true
 }
 
 function igual() {
@@ -268,24 +261,26 @@ function igual() {
         clickButton.style.background = '#018b01'
     }, 100);
     
+    if (firstLine.length < 1) {
+        return
+    } else if (firstLine == 'false') {
+        return
+    }
+    
+    if (raizQ == true) {
+        backLine += ')'
+        
+        raizQ = false
+    }
+    
     if (auxP % 2 != 0) {
-        firstLine[0] += ')'
-        display.value += ')'
+        backLine += ')'
+    
         auxP++
     }
     
-    
-    if (firstLine.length < 1) {
-        return
-    }
-
-    if (raizQ == true) {
-        firstLine[0] += '))'
-        raizQ = false
-    }
-
-    let resultado = eval(firstLine[0])
-    display2.value = display1.value
+    resultado = `${eval(backLine)}`
     display.value = resultado
+    display2.value = firstLine
 
 }
