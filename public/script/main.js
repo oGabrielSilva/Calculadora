@@ -50,7 +50,7 @@ function global() {
                 break;
         }
         
-        display.value = firstLine
+        display.value = firstLine.replace(/['*']/g, 'x')
         if (display.value == 'false') {
             display.value = 'Null'
         }
@@ -65,6 +65,7 @@ function zero() {
     }, 100);
     
     lastValue = '0'
+    auxOp = false
     global()
     
 }
@@ -77,6 +78,7 @@ function um() {
     }, 100);
     
     lastValue = '1'
+    auxOp = false
     global()
     return
 }
@@ -89,6 +91,7 @@ function dois() {
     }, 100);
     
     lastValue = '2'
+    auxOp = false
     global()
     return
 }
@@ -101,6 +104,7 @@ function tres() {
     }, 100);
     
     lastValue = '3'
+    auxOp = false
     global()
     return
 }
@@ -113,6 +117,7 @@ function quatro() {
     }, 100);
     
     lastValue = '4'
+    auxOp = false
     global()
 }
 
@@ -123,6 +128,7 @@ function cinco() {
         clickButton.style.background = '#222222'
     }, 100);
     
+    auxOp = false
     lastValue = '5'
     global()
     return
@@ -136,6 +142,7 @@ function seis() {
     }, 100);
     
     lastValue = '6'
+    auxOp = false
     global()
     return
 }
@@ -148,6 +155,7 @@ function sete() {
     }, 100);
     
     lastValue = '7'
+    auxOp = false
     global()
     return
 }
@@ -160,6 +168,7 @@ function oito() {
     }, 100);
     
     lastValue = '8'
+    auxOp = false
     global()
     return
 }
@@ -172,6 +181,7 @@ function nove() {
     }, 100);
     
     lastValue = '9'
+    auxOp = false
     global()
     return
 }

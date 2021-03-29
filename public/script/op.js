@@ -28,6 +28,7 @@ function del() {
     if (auxP % 2 != 0) {
         auxP++
     }
+    
     auxOp = false
     raizQ = false
     backLine = lastBack[lastBack.length - 1]
@@ -39,7 +40,7 @@ function del() {
     
     lastValue = backLine
     firstLine = lastValue
-    display.value = firstLine
+    display.value = firstLine.replace(/['*']/g, 'x')
 }
 
 function dot() {
@@ -320,6 +321,6 @@ function igual() {
     
     resultado = `${eval(backLine)}`
     display.value = resultado
-    display2.value = firstLine
+    display2.value = firstLine.replace(/['*']/g, 'x')
 
 }
