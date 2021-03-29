@@ -5,12 +5,13 @@ const display2 = document.querySelector('#display2')
 
 //vetores e variáveis globais
 
-let auxP = 0            //auxiliar dos parenteses
-let raizQ = false       // auxiliar da raiz quadrada
+let auxP = 0        //auxiliar dos parenteses
+let raizQ = false   // auxiliar da raiz quadrada
+let auxOp = false   //auxiliar dos operadores, (0 == dot, 1 == porcento, 2 == soma, 3 == vezes, 4 == divide, 5 == menos, 6 == raiz)
 let firstLine = ``
 let backLine = ``
 let lastValue = false
-lastBack = []
+let lastBack = []
 let resultado = ''
 
 //funções glóbais 

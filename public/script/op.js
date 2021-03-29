@@ -10,6 +10,7 @@ function clearLine() {
         auxP++
     }
     raizQ = false
+    auxOp = false
     backLine = ''
     lastValue = false
     firstLine = ''
@@ -27,6 +28,7 @@ function del() {
     if (auxP % 2 != 0) {
         auxP++
     }
+    auxOp = false
     raizQ = false
     backLine = lastBack[lastBack.length - 1]
     lastBack.pop()
@@ -51,8 +53,13 @@ function dot() {
         return
     } else if (firstLine == 'false') {
         return
+    } 
+    
+    if(auxOp == '0') {
+        return
     }
     
+    auxOp = '0'
     lastValue = '.'
     global()
 }
@@ -70,8 +77,12 @@ function porcento() {
         return
     }
     
-    let auxPorc = lastValue
+    if (auxOp == '1') {
+        return
+    }
     
+    auxOp = '1'
+    let auxPorc = lastValue
     lastValue = '/100*'
     if (isNaN(auxPorc)) {
         lastValue = '100/100*'
@@ -93,6 +104,11 @@ function soma() {
         return
     }
     
+    if (auxOp == '2') {
+        return
+    }
+    
+    auxOp = '2'
     lastValue = '+'
     global()
 }
@@ -110,6 +126,11 @@ function vezes() {
         return
     }
     
+    if (auxOp == '3') {
+        return
+    }
+    
+    auxOp = '3'
     lastValue = '*'
     global()
 }
@@ -127,6 +148,11 @@ function divide() {
         return
     }
     
+    if (auxOp == '4') {
+        return
+    }
+    
+    auxOp = '4'
     lastValue = '/'
     global()
 }
@@ -144,6 +170,11 @@ function menos() {
         return
     }
     
+    if (auxOp == '5') {
+        return
+    }
+    
+    auxOp = '5'
     lastValue = '-'
     global()
 }
@@ -156,7 +187,7 @@ function parenteses() {
     }, 100);
     
     if (auxP % 2 != 0) {
-        if (backLine.charAt(backLine.length - 1) == '(') {
+        if (backLine.charAt(backLine.length - 1) == '(' && backLine.charAt(backLine.length - 2) != 't') {
             return
         }
         
@@ -214,8 +245,17 @@ function raiz() {
         backLine += ')'
         raizQ = false
         igual()
+        backLine = ''
+        lastBack = []
+        firstLine = ''
         return
     }
+    
+    if (auxOp == '6') {
+        return
+    }
+    
+    auxOp = '6'
     
     switch (lastValue) {
         case '+':
